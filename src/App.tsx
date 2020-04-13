@@ -1,30 +1,24 @@
 import React from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
-import PaperProvider  from 'react-native-paper';
 import {ThemeProvider as PaperThemeProvider} from 'react-native-paper';
 import {ThemeProvider} from 'rnfui';
-
-
-import Loading from './Screens/Loading/Loading';
-import HookForm from './Screens/Form.tsx/HookForm';
-import PaperForm from './Screens/PaperForm/PaperForm';
-import AppRouter from './Navigation/AppRouter';
+import {Provider} from 'react-redux';
+import AppRouter from './Navigation/AppRouter/AppRouter';
 import PaperTheme from './Config/PaperTheme';
 import AppTheme from './Config/AppTheme';
+import store from './Redux/store';
 
 
 
 
 function App(){
   return(
+    <Provider  store={store}>
     <ThemeProvider value={AppTheme}>
         <PaperThemeProvider theme={PaperTheme}>
     <AppRouter/>
     </PaperThemeProvider>
     </ThemeProvider>
+    </Provider>
  )
 
 }
