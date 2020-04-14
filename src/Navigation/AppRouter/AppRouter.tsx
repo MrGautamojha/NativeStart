@@ -7,6 +7,6 @@ import WebViewApp from '../../Screens/Web/WebViewApp';
 export default function(){
     useAppRouter();
     return(
-        <WebViewApp />
+        <AppSwitchNavigator/>
     )
 }
