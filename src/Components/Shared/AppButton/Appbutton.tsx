@@ -9,7 +9,7 @@ type PropType = {
   style?: ViewStyle;
   height: number;
   children: any;
-  onPress: any;
+  onPress?: any;
   loading: boolean;
 };
 

@@ -5,6 +5,7 @@ import { View, StyleSheet, Alert ,Text, TextInput} from 'react-native';
 import {useForm,Controller,} from 'react-hook-form'
 import { HelperText, Button } from 'react-native-paper';
 import UseHookForm from './useHookForm';
+import AppButton from '../../Components/Shared/AppButton/Appbutton';
 
 
 
@@ -137,12 +138,10 @@ export default function HookForm(props:any) {
            {errors.Redeem && <HelperText style={{color:'red'}}>Redeem is Required.</HelperText>}
 
            <Spacer size={30} />
-           
-          <View style={{justifyContent:'center',alignItems:'center'}}>
-          <Button style={styles.button} onPress={form.handleSubmit(()=>{
-              doLogin()
-          })}> Submit</Button>
-          </View>
+         
+          <AppButton onPress={form.handleSubmit(()=>{
+              doLogin
+          })} children={"SUBMIT"} />
           </Body>
         </Container>
     )

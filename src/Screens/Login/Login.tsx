@@ -8,6 +8,7 @@ import UseLogin from './UseLogin';
 import AppTheme from '../../Config/AppTheme';
 import AppButton from '../../Components/Shared/AppButton/Appbutton';
 import scaler from '../../Utilities/scaler';
+import AppGmailLogin from '../../Components/Shared/AppGmailLogin/AppGmailLogin';
 
 
 
@@ -22,8 +23,9 @@ export default function Login(props:any,navigation:any) {
     
     return(
         <Container  fullScreen  >
-            <Body style={styles.outer}> 
-           <Spacer size={300}/>
+            <Body style={{backgroundColor:'#f2f2f2'}}> 
+            <View style={styles.outer}>
+           <Spacer size={scaler(300)}/>
            <View>
                <Text style={{fontSize:30,fontWeight:'bold',color:AppTheme.color.primary,alignSelf:'center'}}>Login</Text>
            </View>
@@ -86,8 +88,11 @@ export default function Login(props:any,navigation:any) {
               doLogin()
           })}  children={'Submit'} />
           </View>
-          <Spacer size={50}/>
-          <View style={{backgroundColor:AppTheme.color.primary,height:scaler(80),}}>
+          <Spacer size={20}/>
+          <AppGmailLogin />
+          </View>
+          <Spacer size={scaler(200)}/>
+          <View style={{backgroundColor:AppTheme.color.primary,height:scaler(100),}}>
               <Click onPress={()=>props.navigation.navigate('Paper')}>
               <Text style={{alignSelf:'center',justifyContent:'center',fontWeight:'bold',fontSize:scaler(40),color:'white',paddingTop:scaler(10)}}>New to App? SignUp</Text>
               </Click>

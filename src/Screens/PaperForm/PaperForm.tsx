@@ -5,6 +5,7 @@ import { View ,Text, StyleSheet} from 'react-native';
 import { TextInput, HelperText, Button, DefaultTheme } from 'react-native-paper';
 import { ThemeConsumer } from 'rnfui/compiled/dist/Themes/ThemeContext';
 import AppTheme from '../../Config/AppTheme';
+import AppButton from '../../Components/Shared/AppButton/Appbutton';
 
 
 
@@ -121,9 +122,8 @@ export default function PaperForm(){
         }</HelperText>}
         </View>
         <Spacer  size={20}/>
-        <View style={{width:120,alignSelf:'center'}}>
-            <Button onPress={form.handleSubmit(()=>{doLogin()})} style={{backgroundColor:AppTheme.color.secondary,borderRadius:25}}>Submit</Button>
-        </View>
+    
+        <AppButton onPress={form.handleSubmit(()=>{doLogin()})} children={'SUBMIT'}/>
 
         </Body>
     </Container>)

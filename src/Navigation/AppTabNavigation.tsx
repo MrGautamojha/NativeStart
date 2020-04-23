@@ -7,11 +7,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import AppHeaderMain from '../Components/Shared/AppHeaderMain/AppHeaderMain';
 import AppTheme from '../Config/AppTheme';
 import HookForm from '../Screens/Form/HookForm';
+import AppRazorPay from '../Components/Shared/AppRazorPay/AppRazorPay';
 export default function(){
     const Tab=createBottomTabNavigator();
 
     const Paper=createStackNavigator();
     const Hook =createStackNavigator();
+    const Razor =createStackNavigator();
     const PaperFormNavigation=()=>{
        return(
         <Paper.Navigator>
@@ -24,6 +26,11 @@ export default function(){
         <Hook.Screen  name={"HookForm"}  options={{title: 'Home', header: AppHeaderMain}} component={HookForm}/>
     </Hook.Navigator>
     )
+    const RazorPayNavigation=()=>(
+      <Razor.Navigator>
+      <Razor.Screen  name={"RazorPay"}  options={{title: 'Home', header: AppHeaderMain}} component={AppRazorPay}/>
+  </Razor.Navigator>
+  )
 
     return(
       
@@ -39,17 +46,22 @@ export default function(){
                   } else if (route.name === 'HookForm') {
                     iconName = focused ? 'ios-list-box' : 'ios-list';
                   }
+                  else if (route.name === 'RazorPay') {
+                    iconName = focused ? 'ios-list-box' : 'ios-list';
+                  }
         
                   // You can return any component that you like here!
                   return <Ionicons name={iconName} size={size} color={color} />;
                 },
               })}
               tabBarOptions={{
+                keyboardHidesTabBar:true,
                 activeTintColor: AppTheme.color.primary,
         inactiveTintColor: AppTheme.color.overlay,
               }}>
             <Tab.Screen name={'PaperForm'}   component={PaperFormNavigation}/>
             <Tab.Screen name={'HookForm'}  component={HookFormNavigation} />
+            <Tab.Screen name={'RazorPay'}  component={RazorPayNavigation} />
             </Tab.Navigator>
            
             
